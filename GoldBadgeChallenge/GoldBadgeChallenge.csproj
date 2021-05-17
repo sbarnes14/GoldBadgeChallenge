@@ -49,5 +49,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KomodoCafeMenuItems\KomodoCafeMenuItems.csproj">
+      <Project>{1572A108-781F-410C-A5C0-45C2838C304E}</Project>
+      <Name>KomodoCafeMenuItems</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

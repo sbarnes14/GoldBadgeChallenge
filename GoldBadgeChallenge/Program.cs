@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KomodoCafeMenuItems;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,8 @@ namespace GoldBadgeChallenge
     {
         static void Main(string[] args)
         {
+            ProgramUI ui = new ProgramUI();
+            ui.Run();
         }
     }
 }
