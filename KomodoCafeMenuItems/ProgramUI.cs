@@ -58,6 +58,11 @@ namespace KomodoCafeMenuItems
         {
             Console.Clear();
             CafeMenu newMenuItem = new CafeMenu();
+            Console.WriteLine("What menu number would you like to assign this item?");
+            string numberAsString = Console.ReadLine();
+            double numberAsDouble = Convert.ToDouble(numberAsString);
+            newMenuItem.MealNumber = numberAsDouble;
+
             Console.WriteLine("What would you like to call this menu item?");
             newMenuItem.MealName = Console.ReadLine();
 
@@ -71,7 +76,6 @@ namespace KomodoCafeMenuItems
             string priceAsString = Console.ReadLine();
             double priceAsDouble = Convert.ToDouble(priceAsString);
             newMenuItem.Price = priceAsDouble;
-
 
             bool wasAdded = _repo.CreateMenuItems(newMenuItem);
             if (wasAdded)
@@ -90,11 +94,11 @@ namespace KomodoCafeMenuItems
             Console.WriteLine(allMenuItems);
             foreach (CafeMenu menuItem in allMenuItems)
             {
-                Console.WriteLine($"Meal Name: {menuItem.MealName}\n" +
+                Console.WriteLine($"Meal Number {menuItem.MealNumber}\n" +
+                    $"Meal Name: {menuItem.MealName}\n" +
                     $"Meal Description: {menuItem.MealDescription}\n" +
                     $"Meal ingredients: {menuItem.Ingredients}\n" +
                     $"Meal Price: {menuItem.Price}");
-
             }
         }
         private void UpdateExistingItems()
@@ -106,6 +110,11 @@ namespace KomodoCafeMenuItems
             string itemName = Console.ReadLine();
 
             CafeMenu newItem = new CafeMenu();
+
+            Console.WriteLine("What menu number would you like to assign this item?");
+            string numberAsString = Console.ReadLine();
+            double numberAsDouble = Convert.ToDouble(numberAsString);
+            newItem.MealNumber = numberAsDouble;
 
             Console.WriteLine("What would you like to name this item?");
             newItem.MealName = Console.ReadLine();
@@ -125,7 +134,7 @@ namespace KomodoCafeMenuItems
         {
             Console.Clear();
             ViewFullMenu();
-            Console.WriteLine("Enter the name for the menu item you would like to delete");
+            Console.WriteLine("Enter the menu number for the menu item you would like to delete");
             bool wasDeleted = _repo.DeleteMenuItems(Console.ReadLine());
             if (wasDeleted)
             {
