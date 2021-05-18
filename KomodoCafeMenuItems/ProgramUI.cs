@@ -20,8 +20,8 @@ namespace KomodoCafeMenuItems
             while (keepRunning)
             {
                 Console.WriteLine("Select an option\n" +
-                    "1. View Full Menu\n" +
-                    "2. Create Menu Items\n" +
+                    "1. Create Menu Items\n" +
+                    "2. View Full Menu\n" +
                     "3. Update Existing Items\n" +
                     "4. Delete Menu Items\n" +
                     "5. Exit");
@@ -30,10 +30,10 @@ namespace KomodoCafeMenuItems
                 switch (input.ToLower())
                 {
                     case "1":
-                        ViewFullMenu();
+                        CreateMenuItems();
                         break;
                     case "2":
-                        CreateMenuItems();
+                        ViewFullMenu();
                         break;
                     case "3":
                         UpdateExistingItems();
@@ -52,21 +52,6 @@ namespace KomodoCafeMenuItems
                 Console.WriteLine("Press any key to contine");
                 Console.ReadKey();
                 Console.Clear();
-            }
-        }
-
-        private void ViewFullMenu()
-        {
-            Console.Clear();
-            List<CafeMenu> allMenuItems = _repo.ViewMenu();
-            Console.WriteLine(allMenuItems);
-            foreach (CafeMenu menuItem in allMenuItems)
-            {
-                Console.WriteLine($"Meal Name: {menuItem.MealName}\n" +
-                    $"Meal Description: {menuItem.MealDescription}\n" +
-                    $"Meal ingredients: {menuItem.Ingredients}\n" +
-                    $"Meal Price: {menuItem.Price}");
-
             }
         }
         private void CreateMenuItems()
@@ -98,6 +83,20 @@ namespace KomodoCafeMenuItems
                 Console.WriteLine("The item was not added to the menu");
             }
         }
+        private void ViewFullMenu()
+        {
+            Console.Clear();
+            List<CafeMenu> allMenuItems = _repo.ViewMenu();
+            Console.WriteLine(allMenuItems);
+            foreach (CafeMenu menuItem in allMenuItems)
+            {
+                Console.WriteLine($"Meal Name: {menuItem.MealName}\n" +
+                    $"Meal Description: {menuItem.MealDescription}\n" +
+                    $"Meal ingredients: {menuItem.Ingredients}\n" +
+                    $"Meal Price: {menuItem.Price}");
+
+            }
+        }
         private void UpdateExistingItems()
         {
             Console.Clear();
@@ -111,7 +110,7 @@ namespace KomodoCafeMenuItems
             Console.WriteLine("What would you like to name this item?");
             newItem.MealName = Console.ReadLine();
 
-            Console.WriteLine("Please provide a descriptio of the menu item.");
+            Console.WriteLine("Please provide a description of the menu item.");
             newItem.MealDescription = Console.ReadLine();
 
             Console.WriteLine("What ingredients are used to make this item?");
