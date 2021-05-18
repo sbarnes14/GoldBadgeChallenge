@@ -42,12 +42,22 @@ namespace KomodoCafeMenuItems
         }
 
         [TestMethod]
+        public void ViewItemsByName_shouldReturnCorrectItems()
+        {
+            CafeMenu searchResult = _repo.ViewItemByName("Grilled Cheese");
+
+            Assert.AreEqual(_cafeMenu.MealName, "Grilled Cheese");
+        }
+
+        [TestMethod]
         public void UpdateMenuItems_ShouldReturnpdatedValue()
         {
             CafeMenu menuItem = new CafeMenu();
             CafeMenuRepository repository = new CafeMenuRepository();
 
             _repo.UpdateMenu("Grilled Cheese", new CafeMenu("Banana", 5, "its a banana", "just banana", 2));
+
+            Assert.AreEqual(_cafeMenu.MealName, "Grilled Cheese");
         }
         [TestMethod]
         public void DeleteMenuItems_ShouldReturnTrue()
