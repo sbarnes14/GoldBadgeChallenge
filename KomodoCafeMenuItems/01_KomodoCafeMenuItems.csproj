@@ -51,7 +51,6 @@
   <ItemGroup>
     <Compile Include="CafeMenu.cs" />
     <Compile Include="CafeMenuRepository.cs" />
-    <Compile Include="ProgramUI.cs" />
     <Compile Include="CafeMenuTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
